@@ -1,21 +1,21 @@
 <template>
   <div>
-    <Header />
-
-    <NuxtChild/>
+    <MainSection>
+      about
+    </MainSection>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Header from "~/components/Header.vue";
 import MainSection from "~/components/MainSection.vue";
 
 export default Vue.extend({
-  name: 'App',
   components: {
-    Header,
     MainSection,
   }
 })
 </script>
+
+<style>
+</style>
