@@ -41,6 +41,21 @@
         <div class="sectionTitleWrapper">
           <h4 class="sectionTitle">我的行銷操作</h4>
           <h6 class="mt-3">廣告行銷長期的INSIGHT挖掘訓練，我發現與UX的使用者洞察是非常相似的</h6>
+
+          <div class="mt-3 -mx-1 -mb-2">
+            <Box
+              class="marketingBox"
+              v-for="item in marketingList"
+              :key="item.title"
+            >
+              <template v-slot:image>
+                <img class="marketingImage" :src="item.image">
+              </template>
+              <template v-slot:content>
+                <h6 class="text-green">{{ item.title }}</h6>
+              </template>
+            </Box>
+          </div>
         </div>
 
 
@@ -54,7 +69,27 @@
           <h6 class="mt-3">從我的Behance中，可以了解到我的設計功力以及美感</h6>
         </div>
 
-
+        <div class="mt-3 -mx-1.5">
+          <Box
+            class="graphicDesignBox"
+            v-for="item in graphicDesignList"
+            :key="item.title"
+          >
+            <template v-slot:image>
+              <img class="graphicDesignImage" :src="item.image">
+            </template>
+            <template v-slot:content>
+              <h6 class="text-green">{{ item.title }}</h6>
+            </template>
+            <template v-slot:footer>
+              <div
+                class="tag"
+                v-for="tag in item.tags"
+                :key="tag"
+              >{{ tag }}</div>
+            </template>
+          </Box>
+        </div>
       </div>
     </section>
   </div>
@@ -64,12 +99,19 @@
 import Vue from 'vue'
 import MainSection from "~/components/MainSection.vue";
 import InfoPanel from '~/components/InfoPanel.vue';
+import Box from "~/components/Box.vue";
+
+const TAGS = {
+  ILLUSTRATION: '插畫',
+  WEB_DESIGN: '網頁設計',
+}
 
 export default Vue.extend({
   name: 'Index',
   components: {
     MainSection,
     InfoPanel,
+    Box,
   },
   data() {
     return {
@@ -83,7 +125,64 @@ export default Vue.extend({
             console.log('dragon')
           },
         },
-      ]
+      ],
+      marketingList: [
+        {
+          image: '',
+          title: '影音平台做廣告？CHOCO TV的行銷游擊戰',
+          clickAction: () => {
+            console.log('market')
+          },
+        },
+        {
+          image: '',
+          title: '粉絲團經營【殭屍粉絲團復活記 — TOTAL重生之旅】',
+          clickAction: () => {
+            console.log('market')
+          },
+        },
+        {
+          image: '',
+          title: '最不端莊的保養品廣告 — 與DR.WU來一場創意角鬥',
+          clickAction: () => {
+            console.log('market')
+          },
+        },
+      ],
+      graphicDesignList: [
+        {
+          image: '',
+          title: '十六茶-健康行旅行旅指南活動網站',
+          tags: [TAGS.ILLUSTRATION, TAGS.WEB_DESIGN],
+          clickAction: () => {
+            console.log('graphicDesignList')
+          },
+        },
+        {
+          image: '',
+          title: 'aaaaaa',
+          tags: [TAGS.ILLUSTRATION],
+          clickAction: () => {
+            console.log('graphicDesignList')
+          },
+        },
+        {
+          image: '',
+          title: 'bbb',
+          tags: [TAGS.ILLUSTRATION],
+          clickAction: () => {
+            console.log('graphicDesignList')
+          },
+        },
+        {
+          image: '',
+          title: 'cccc',
+          tags: [TAGS.ILLUSTRATION],
+          clickAction: () => {
+            console.log('graphicDesignList')
+          },
+        },
+      ],
     }
   }
 })
@@ -114,4 +213,41 @@ export default Vue.extend({
   padding: 16px 40px;
   border-radius: 50px;
 }
+.marketingBox {
+  @apply inline-block shadow-md mx-1 mb-2;
+  width: calc(100% / 3 - 16px);
+
+  @screen sm {
+    width: calc(100% - 16px);
+  }
+
+  .marketingImage {
+    background-color: #999999;
+    height: 180px;
+  }
+}
+
+.graphicDesignBox {
+  @apply inline-block mx-1.5 mb-3;
+  width: calc(50% - 24px);
+
+  @screen sm {
+    width: calc(100% - 24px);
+  }
+
+  .graphicDesignImage {
+    background-color: #999999;
+    height: 302px;
+  }
+
+  .tag {
+    @apply inline-block py-0.5 px-2 border-pink border-2 rounded-full border-solid text-pink;
+
+    &:not(:last-of-type) {
+      @apply mr-1.5;
+    }
+  }
+}
+
+
 </style>

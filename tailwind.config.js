@@ -12,8 +12,10 @@ module.exports = {
       sm: { max: '568px' },
     },
     spacing: {
-      // unit 8 rem
+      // unit 0.8 rem
       '0': '0px',
+      '0.125': '0.1rem',
+      '0.25': '0.2rem',
       '0.5': '0.4rem',
       '1': '0.8rem',
       '1.5': '1.2rem',

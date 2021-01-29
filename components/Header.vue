@@ -1,9 +1,9 @@
 <template>
-  <header>
-    <div class="container flex justify-between">
+  <header class="relative">
+    <div class="container flex justify-between items-center">
       <h2 class="text-3xl">TingEn's Portfolio</h2>
 
-      <nav class="flex">
+      <nav class="flex md:hidden">
         <NuxtLink
           class="linkItem"
           v-for="item in navList"
@@ -12,6 +12,24 @@
 
         <Button class="bg-green text-white linkItem">下載履歷</Button>
       </nav>
+      <button
+        :class="['hamburgerButton', { active: showMobileNav }]"
+        @click="toggleMobileNav"
+        @blur="setShowMobileNav(false)"
+      >
+        <div
+          class="line"
+          v-for="i in 3"
+        ></div>
+      </button>
+    </div>
+
+    <div :class="['mobileNavPanel', { active: showMobileNav }]">
+      <NuxtLink
+        class="mobileLinkItem"
+        v-for="item in navList"
+        :to="item.route"
+      >{{ item.text }}</NuxtLink>
     </div>
   </header>
 </template>
@@ -23,6 +41,7 @@ export default Vue.extend({
   name: 'Header',
   data() {
     return {
+      showMobileNav: false,
       navList: [
         {
           text: '設計作品',
@@ -35,6 +54,14 @@ export default Vue.extend({
       ]
     }
   },
+  methods: {
+    toggleMobileNav() {
+      this.setShowMobileNav(!this.showMobileNav);
+    },
+    setShowMobileNav(value: boolean) {
+      this.showMobileNav = value;
+    }
+  }
 })
 </script>
 
@@ -44,11 +71,48 @@ export default Vue.extend({
     top: 0;
     left: 0;
     width: 100%;
-    padding: 15px 0;
     z-index: 10;
   }
 
   .linkItem {
-    padding: 8px 24px;
+    @apply py-1 px-3 my-2.5;
+  }
+
+  .hamburgerButton {
+    @apply hidden p-2.5 w-2.5 h-2 outline-none box-content;
+    @screen md {
+      @apply inline-flex flex-col justify-between items-stretch;
+    }
+
+    .line {
+      @apply w-full h-0.25 bg-dark;
+    }
+
+    &.active {
+      @apply bg-green;
+      .line {
+        @apply w-full h-0.25 bg-white;
+      }
+    }
+  }
+
+  .mobileNavPanel {
+    @apply hidden absolute w-full left-0 bg-bgMain;
+    @screen md {
+      @apply block;
+    }
+    top: 100%;
+    transition: 0.3s;
+    transform: translateY(-100%);
+    z-index: -1;
+
+    &.active {
+      transform: translateY(0);
+    }
+
+    .mobileLinkItem {
+      @apply block py-3 px-2.5;
+
+    }
   }
 </style>
