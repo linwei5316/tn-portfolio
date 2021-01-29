@@ -33,7 +33,8 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .infoPanel {
   @apply rounded-lg flex justify-end items-stretch;
-
+  background-color: #999999;
+  
   .infoWrapper {
     @apply m-5 px-3 py-5 bg-white rounded-lg w-2/5 transform translate-x-full;
 

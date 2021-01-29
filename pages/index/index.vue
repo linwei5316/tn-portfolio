@@ -15,14 +15,14 @@
             </div>
           </div>
 
-          <div class="w-1/2 sm:hidden">
-            <img class="keyVisualImage" src="">
+          <div class="w-1/2 flex items-center sm:hidden">
+            <img class="keyVisualImage" src="~/assets/images/index-kv.png">
           </div>
         </div>
       </div>
     </MainSection>
 
-    <section class="py-6">
+    <section class="py-6 negativeMarginSection md:mt-0">
       <div class="container">
         <div class="sectionTitleWrapper mb-9">
           <h4 class="sectionTitle">UIUX 設計案例</h4>
@@ -63,7 +63,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import MainSection from "~/components/MainSection.vue";
-import InfoPanel from '~/components/InfoPanel';
+import InfoPanel from '~/components/InfoPanel.vue';
 
 export default Vue.extend({
   name: 'Index',
@@ -94,9 +94,17 @@ export default Vue.extend({
   @apply flex;
 }
 
+.negativeMarginSection {
+  margin-top: -162px;
+
+  @screen sm {
+    margin-top: 0;
+  }
+}
+
 .keyVisualImage {
   @apply w-full;
-  transform: translateX(-20px);
+  transform: translateX(60px);
 }
 .sectionTitleWrapper {
   @apply flex flex-col items-center;

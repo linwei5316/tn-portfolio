@@ -16,5 +16,8 @@ export default Vue.extend({})
 .mainSection {
   height: 100vh;
   width: 100%;
+  background-image: url('~@/assets/images/nn.png');
+  background-size: auto 120%;
+  background-position: center bottom;
 }
 </style>
