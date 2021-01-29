@@ -20,6 +20,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'Header',
   data() {
     return {
       navList: [
@@ -44,6 +45,7 @@ export default Vue.extend({
     left: 0;
     width: 100%;
     padding: 15px 0;
+    z-index: 10;
   }
 
   .linkItem {

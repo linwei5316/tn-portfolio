@@ -6,6 +6,33 @@ module.exports = {
   purge: [],
   theme: {
     extend: {},
+    screens: {
+      lg: { max: '1366px' },
+      md: { max: '768px' },
+      sm: { max: '568px' },
+    },
+    spacing: {
+      // unit 8 rem
+      '0': '0px',
+      '0.5': '0.4rem',
+      '1': '0.8rem',
+      '1.5': '1.2rem',
+      '2': '1.6rem',
+      '2.5': '2rem',
+      '3': '2.4rem',
+      '3.5': '2.8rem',
+      '4': '3.2rem',
+      '4.5': '3.6rem',
+      '5': '4rem',
+      '5.5': '4.4rem',
+      '6': '4.8rem',
+      '6.5': '5.2rem',
+      '7': '5.6rem',
+      '7.5': '6rem',
+      '8': '6.4rem',
+      '8.5': '6.8rem',
+      '9': '7.2rem',
+    },
     colors: {
       dark: '#333333',
       white: 'white',
@@ -15,6 +42,7 @@ module.exports = {
       pink: '#dd8158',
       pinkAction: '#e1a988',
       brown: '#775b4c',
+      brownLight: '#c2956e',
     },
     fontSize: {
       'tiny': '1.2rem',
@@ -27,6 +55,13 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
       // '7xl': '5rem',
+    },
+    borderRadius: {
+      'none': '0',
+      'sm': '0.4rem',
+      'md': '0.8rem',
+      'lg': '1.6rem',
+      'full': '9999px',
     }
   },
   variants: {},
