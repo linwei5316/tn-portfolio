@@ -7,7 +7,7 @@
             <h2 class="md:text-5xl sm:text-4xl">Hi, 我是 Ting En</h2>
             <h2 class="md:text-5xl sm:text-4xl">是個設計行銷雙棲動物</h2>
             <h4 class="text-brown mt-3.5 sm:mt-1.5 md:text-3xl sm:text-2xl">過往的經驗，讓我在UX領域有更多不同的思考角度</h4>
-            <p class="mt-3">工業設計系畢業讓我擁有關於挖掘使用者痛點的基礎訓練；四年的廣告行銷與視覺設計訓練，讓我更貼近市場；第一線的貼近企業主與消費者，也讓我在各個利益關係人中不停的學習取得衡。目前正決心在UIUX領域深耕。</p>
+            <p class="text-gray mt-3">工業設計系畢業讓我擁有關於挖掘使用者痛點的基礎訓練；四年的廣告行銷與視覺設計訓練，讓我更貼近市場；第一線的貼近企業主與消費者，也讓我在各個利益關係人中不停的學習取得衡。目前正決心在UIUX領域深耕。</p>
 
             <div class="buttonList mt-3 sm:mt-1.5">
               <Button class="bg-pink text-white mr-1 sm:mr-2 sm:w-full">關於我</Button>
@@ -24,7 +24,7 @@
 
     <section class="py-6 negativeMarginSection md:mt-0">
       <div class="container">
-        <div class="sectionTitleWrapper mb-9">
+        <div class="sectionTitleWrapper mb-9 md:mb-3">
           <h4 class="sectionTitle">UIUX 設計案例</h4>
         </div>
 
@@ -125,7 +125,7 @@ export default Vue.extend({
         {
           date: '2020',
           title: '分帳龍寶寶 Line bot 製作與迭代',
-          content: 'kfdsjflkdjsfjsl',
+          content: 'Modi dolor placeat molestiae temporibus in dolorum nostrum aut sed. Reiciendis officia omnis asperiores ullam unde cumque aut et',
           image: '',
           clickAction: () => {
             console.log('dragon')

@@ -47,6 +47,7 @@ module.exports = {
     },
     colors: {
       dark: '#333333',
+      gray: '#828282',
       white: 'white',
       bgMain: '#f9f5f0',
       green: '#708a81',
