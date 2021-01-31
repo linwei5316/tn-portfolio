@@ -4,14 +4,14 @@
       <div class="flex justify-center items-center h-full">
         <div class="flex">
           <div class="w-1/2 sm:w-full">
-            <h2>Hi, 我是 Ting En</h2>
-            <h2>是個設計行銷雙棲動物</h2>
-            <h4 class="text-brown mt-3.5">過往的經驗，讓我在UX領域有更多不同的思考角度</h4>
+            <h2 class="md:text-5xl sm:text-4xl">Hi, 我是 Ting En</h2>
+            <h2 class="md:text-5xl sm:text-4xl">是個設計行銷雙棲動物</h2>
+            <h4 class="text-brown mt-3.5 sm:mt-1.5 md:text-3xl sm:text-2xl">過往的經驗，讓我在UX領域有更多不同的思考角度</h4>
             <p class="mt-3">工業設計系畢業讓我擁有關於挖掘使用者痛點的基礎訓練；四年的廣告行銷與視覺設計訓練，讓我更貼近市場；第一線的貼近企業主與消費者，也讓我在各個利益關係人中不停的學習取得衡。目前正決心在UIUX領域深耕。</p>
 
-            <div class="buttonList mt-3">
-              <Button class="bg-pink text-white mr-1">關於我</Button>
-              <Button class="bg-pink text-white">下載履歷</Button>
+            <div class="buttonList mt-3 sm:mt-1.5">
+              <Button class="bg-pink text-white mr-1 sm:mr-2 sm:w-full">關於我</Button>
+              <Button class="bg-pink text-white sm:w-full">下載履歷</Button>
             </div>
           </div>
 
@@ -36,6 +36,7 @@
         />
       </div>
     </section>
+
     <section class="py-6 bg-white">
       <div class="container">
         <div class="sectionTitleWrapper">
@@ -43,22 +44,22 @@
           <h6 class="mt-3">廣告行銷長期的INSIGHT挖掘訓練，我發現與UX的使用者洞察是非常相似的</h6>
 
           <div class="mt-3 -mx-1 -mb-2">
-            <Box
+            <ScrollTriggerWrapper
               class="marketingBox"
               v-for="item in marketingList"
               :key="item.title"
             >
-              <template v-slot:image>
-                <img class="marketingImage" :src="item.image">
-              </template>
-              <template v-slot:content>
-                <h6 class="text-green">{{ item.title }}</h6>
-              </template>
-            </Box>
+              <Box>
+                <template v-slot:image>
+                  <img class="marketingImage" :src="item.image">
+                </template>
+                <template v-slot:content>
+                  <h6 class="text-green">{{ item.title }}</h6>
+                </template>
+              </Box>
+            </ScrollTriggerWrapper>
           </div>
         </div>
-
-
       </div>
     </section>
 
@@ -70,25 +71,27 @@
         </div>
 
         <div class="mt-3 -mx-1.5">
-          <Box
+          <ScrollTriggerWrapper
             class="graphicDesignBox"
             v-for="item in graphicDesignList"
             :key="item.title"
           >
-            <template v-slot:image>
-              <img class="graphicDesignImage" :src="item.image">
-            </template>
-            <template v-slot:content>
-              <h6 class="text-green">{{ item.title }}</h6>
-            </template>
-            <template v-slot:footer>
-              <div
-                class="tag"
-                v-for="tag in item.tags"
-                :key="tag"
-              >{{ tag }}</div>
-            </template>
-          </Box>
+            <Box>
+              <template v-slot:image>
+                <img class="graphicDesignImage" :src="item.image">
+              </template>
+              <template v-slot:content>
+                <h6 class="text-green">{{ item.title }}</h6>
+              </template>
+              <template v-slot:footer>
+                <div
+                  class="tag"
+                  v-for="tag in item.tags"
+                  :key="tag"
+                >{{ tag }}</div>
+              </template>
+            </Box>
+          </ScrollTriggerWrapper>
         </div>
       </div>
     </section>
@@ -100,6 +103,8 @@ import Vue from 'vue'
 import MainSection from "~/components/MainSection.vue";
 import InfoPanel from '~/components/InfoPanel.vue';
 import Box from "~/components/Box.vue";
+import ScrollTriggerWrapper from "~/components/ScrollTriggerWrapper.vue";
+import gsap from 'gsap';
 
 const TAGS = {
   ILLUSTRATION: '插畫',
@@ -112,6 +117,7 @@ export default Vue.extend({
     MainSection,
     InfoPanel,
     Box,
+    ScrollTriggerWrapper,
   },
   data() {
     return {
@@ -184,11 +190,12 @@ export default Vue.extend({
         },
       ],
     }
-  }
+  },
 })
 </script>
 
 <style lang="scss" scoped>
+
 .buttonList {
   @apply flex;
 }
@@ -209,9 +216,14 @@ export default Vue.extend({
   @apply flex flex-col items-center;
 }
 .sectionTitle {
-  @apply font-black text-white bg-brown;
-  padding: 16px 40px;
-  border-radius: 50px;
+  @apply py-2 px-5 font-black text-white bg-brown rounded-full;
+
+  @screen md {
+    @apply py-1 text-3xl;
+  }
+  @screen sm {
+    @apply py-0.5 px-4 text-xl;
+  }
 }
 .marketingBox {
   @apply inline-block shadow-md mx-1 mb-2;
