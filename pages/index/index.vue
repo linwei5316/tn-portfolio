@@ -226,7 +226,7 @@ export default Vue.extend({
   }
 }
 .marketingBox {
-  @apply inline-block shadow-md mx-1 mb-2;
+  @apply inline-block shadow-md rounded-md mx-1 mb-2;
   width: calc(100% / 3 - 16px);
 
   @screen sm {
