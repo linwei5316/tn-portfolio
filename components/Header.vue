@@ -1,6 +1,19 @@
 <template>
-  <header class="relative">
-    <div class="container flex justify-between items-center">
+  <header
+    :class="[
+      'relative', 'transition',
+      {
+        'bg-bgMain': !featTop,
+        mobileNavActive: showMobileNav,
+      }
+    ]"
+  >
+    <div
+      :class="[
+        'container', 'flex', 'justify-between', 'items-center', 'transition',
+        { 'bg-bgMain': !featTop }
+      ]"
+    >
       <h2 class="text-3xl">TingEn's Portfolio</h2>
 
       <nav class="flex md:hidden">
@@ -24,7 +37,7 @@
       </button>
     </div>
 
-    <div :class="['mobileNavPanel', { active: showMobileNav }]">
+    <div :class="['mobileNavPanel', 'transition', { active: showMobileNav }]">
       <NuxtLink
         class="mobileLinkItem"
         v-for="item in navList"
@@ -35,13 +48,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
+import { throttle } from 'lodash';
 
 export default Vue.extend({
   name: 'Header',
   data() {
     return {
       showMobileNav: false,
+      featTop: true,
       navList: [
         {
           text: '設計作品',
@@ -60,18 +75,39 @@ export default Vue.extend({
     },
     setShowMobileNav(value: boolean) {
       this.showMobileNav = value;
-    }
+    },
+    scrollWindowHandler() {
+      this.featTop = window.scrollY === 0;
+      console.log(window.scrollY);
+    },
+  },
+  created() {
+    this.throttleScrollWindowHandler = throttle(this.scrollWindowHandler, 300);
+  },
+  mounted() {
+    window.addEventListener('scroll', this.throttleScrollWindowHandler);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.throttleScrollWindowHandler);
   }
 })
 </script>
 
 <style lang="scss" scoped>
+  .transition {
+    transition: 0.3s;
+  }
+
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
+
+    &.mobileNavActive {
+      @apply bg-bgMain;
+    }
   }
 
   .linkItem {
@@ -102,12 +138,14 @@ export default Vue.extend({
       @apply block;
     }
     top: 100%;
-    transition: 0.3s;
-    transform: translateY(-100%);
+    opacity: 0;
+    transform: translateY(calc(-100%));
     z-index: -1;
 
     &.active {
-      transform: translateY(0);
+      transition-delay: 0.3s;
+      transform: translateY(-1px);
+      opacity: 1;
     }
 
     .mobileLinkItem {
