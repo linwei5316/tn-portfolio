@@ -39,7 +39,7 @@ export default Vue.extend({
 
     gsap.to(scrollTriggerWrapperRef,{
       scrollTrigger: {
-        trigger: scrollTriggerWrapperRef,
+        trigger: scrollTriggerWrapperRef as Element,
         toggleActions: 'restart pause pause reverse',
         start: 'top 85%',
         // markers: true,

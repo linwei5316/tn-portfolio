@@ -113,6 +113,7 @@ const TAGS = {
 
 export default Vue.extend({
   name: 'Index',
+  scrollToTop: true,
   components: {
     MainSection,
     InfoPanel,

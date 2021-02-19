@@ -6,8 +6,7 @@
     <section class="navigateBannerMargin">
       <div class="container">
         <div class="mb-8 md:mb-6 sm:mb-5 p-5 sm:p-3 rounded-lg shadow-md bg-white">
-          <h2>石二鍋線上點餐叫號系統</h2>
-          <h2 class="mb-3 sm:mb-4.5">APP Redesign</h2>
+          <h2 class="keyH2 mb-3 sm:mb-4.5">石二鍋線上點餐叫號系統 APP Redesign</h2>
 
           <div class="flex mt-3 sm:mt-4.5 md:flex-wrap">
             <div class="inline-block w-1/2 md:w-full mr-2 md:mr-0 md:mb-3">
@@ -87,7 +86,7 @@
               <p>例如釘選最愛門市或自訂通知設定等</p>
             </div>
           </div>
-        </div>`
+        </div>
 
       </div>
     </section>
@@ -203,7 +202,14 @@
         <h5 class="mb-3">Prototype</h5>
       </div>
 
-      <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="100%" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FBCjeeAb7Oo0NX6UWPlqv2O%2F%25E7%259F%25B3%25E4%25BA%258C%25E9%258D%258BAPP%3Fnode-id%3D196%253A39%26scaling%3Dscale-down" allowfullscreen />
+<!--      //TODO mobile prototype -->
+      <iframe
+        v-if="showPrototype"
+        style="border: 1px solid rgba(0, 0, 0, 0.1);"
+        width="100%" height="100%"
+        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FBCjeeAb7Oo0NX6UWPlqv2O%2F%25E7%259F%25B3%25E4%25BA%258C%25E9%258D%258BAPP%3Fnode-id%3D196%253A39%26scaling%3Dscale-down"
+        allowfullscreen
+      />
     </div>
 
     <section class="mb-10 md:mb-7.5">
@@ -244,50 +250,43 @@
 import Vue from 'vue';
 import TwoPartArticleContent from '@/components/TwoPartArticleContent.vue';
 
+const breakPoint = 768;
+
 export default Vue.extend({
   name: "HotPotRedesign",
+  scrollToTop: true,
   components: {
     TwoPartArticleContent,
   },
+  data() {
+    return {
+      showPrototype: false,
+    }
+  },
+  created() {
+    if (process.client && window.innerWidth > breakPoint) {
+      this.showPrototype = true;
+    }
+  }
 })
 </script>
 
 <style lang="scss" scoped>
-.hotpotPage {
-  h5 {
-    @apply text-3xl text-brown;
-  }
+@import '~@/assets/scss/collectionPage.scss';
 
-  p {
-    @apply text-lg;
-  }
+.hotpotPage {
+  @include collectionPage;
 
   .banner {
-    margin-top: 77px;
-    height: 560px;
     background-image: url("~@/assets/images/hotpot/hotpot-cover.jpg");
-    background-position: center;
-    background-size: cover;
-
-    @screen md {
-      margin-top: 56px;
-    }
-
-    @screen sm {
-      height: 375px;
-    }
-  }
-
-  .navigateBannerMargin {
-    margin-top: -144px;
   }
 
   .prototype {
     width: 100%;
     height: 100vh;
 
-    @screen sm {
-      height: 80vh;
+    @screen md {
+      height: auto;
     }
   }
 }

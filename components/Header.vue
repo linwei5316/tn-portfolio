@@ -78,11 +78,11 @@ export default Vue.extend({
     },
     scrollWindowHandler() {
       this.featTop = window.scrollY === 0;
-      console.log(window.scrollY);
     },
+    throttleScrollWindowHandler() {},
   },
   created() {
-    this.throttleScrollWindowHandler = throttle(this.scrollWindowHandler, 300);
+    this.throttleScrollWindowHandler = throttle(this.scrollWindowHandler, 50);
   },
   mounted() {
     window.addEventListener('scroll', this.throttleScrollWindowHandler);

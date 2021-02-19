@@ -97,6 +97,8 @@ import MainSection from "~/components/MainSection.vue";
 import ExperiencePanel from "~/components/ExperiencePanel.vue";
 
 export default Vue.extend({
+  name: 'About',
+  scrollToTop: true,
   components: {
     MainSection,
     ExperiencePanel,
