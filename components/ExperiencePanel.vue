@@ -54,7 +54,7 @@ export default Vue.extend({
 .experiencePanel {
 
   .imagePart {
-    @apply mr-6;
+    @apply mr-6 flex-shrink-0;
 
     img {
       @apply w-15 h-15;

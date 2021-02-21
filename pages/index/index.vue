@@ -16,7 +16,7 @@
           </div>
 
           <div class="w-1/2 flex items-center sm:hidden">
-            <img class="keyVisualImage" src="~/assets/images/index-kv.png">
+            <img class="keyVisualImage" src="~/assets/images/index/kv.png">
           </div>
         </div>
       </div>

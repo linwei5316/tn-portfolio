@@ -1,15 +1,15 @@
 <template>
   <div>
-    <MainSection>
+    <MainSection class="sm:mb-5">
       <div class="flex justify-center items-center h-full">
         <div class="flex">
-          <div class="flex-1 mr-2 flex items-center sm:hidden">
-            <img class="photo" src="~/assets/images/index-kv.png">
+          <div class="tn-img-wrapper flex-1 mr-2 flex items-start sm:hidden">
+            <img class="photo" src="~/assets/images/about-me/TN_img.png">
           </div>
 <!--          //TODO confirm photo pad RWD -->
 
-          <div class="flex-1 sm:w-full">
-            <h2 class="md:text-5xl sm:text-4xl">Hi，我是 Ting En Wei</h2>
+          <div class="tn-img-textPart sm:w-full">
+            <h2 class="mt-6 md:text-5xl sm:text-4xl">Hi, 我是 Ting En Wei</h2>
             <h2 class="md:text-5xl sm:text-4xl">你可以叫我TN</h2>
             <p class="text-gray mt-3">畢業於臺灣科技大學工業設計系，投入廣告行銷產業四年多，待過小型公司，一條龍服務，從業務窗口到實際執行設計與對外溝通聯繫，也曾任4A大型廣告代理商的資深設計，專門創意發想以及設計執行。目前正決心轉移至UIUX領域。</p>
             <p class="text-gray mt-3">我相信過往的行銷經驗以及工業設計背景，能讓我在企業與消費者之中取得更好的平衡，提供不同的觀點。</p>
@@ -48,6 +48,7 @@
             >
               <div class="iconBlock">
 <!--                //TODO icon-->
+                <img :src="item.image">
               </div>
               <p class="text-2xl text-gray mt-0.5 sm:text-tiny">{{ item.name }}</p>
             </div>
@@ -107,63 +108,63 @@ export default Vue.extend({
     return {
       professionalFieldList: [
         {
-          image: '',
-          content: '影片剪輯與動態設計'
+          image: require('@/assets/images/about-me/professional_uiux.png'),
+          content: 'UIUX 設計與原型製作'
         },
         {
-          image: '',
-          content: '影片剪輯與動態設計'
+          image: require('@/assets/images/about-me/professional_graphic.png'),
+          content: '平面設計與影像合成'
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/professional_video.png'),
           content: '影片剪輯與動態設計'
         },
       ],
       softwareSkillList: [
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_figma.png'),
           name: 'Fimga',
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_photoshop.png'),
           name: 'Photoshop',
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_illustrator.png'),
           name: 'Illustrator',
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_sketch.png'),
           name: 'Sketch',
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_after-effect.png'),
           name: 'After Effect',
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_final-cut.png'),
           name: 'Final cut',
         },
         {
-          image: '',
+          image: require('@/assets/images/about-me/software_webflow.png'),
           name: 'Webflow',
         },
       ],
       experienceData: {
         NTUST: {
-          image: '',
+          image: require('@/assets/images/about-me/NTUST_logo.png'),
           position: '臺灣科技大學',
           place: '創意設計學士班 (主修工業設計)',
           time: '2012-2016',
         },
         rules: {
-          image: '',
+          image: require('@/assets/images/about-me/rules_logo.png'),
           position: '創意企劃 Creative Planner',
           place: '吾則創意 Rules Creative',
           time: '2016.08-2019.07',
         },
         mcCann: {
-          image: '',
+          image: require('@/assets/images/about-me/McCANN_logo.png'),
           position: '資深設計 Senior Design',
           place: '麥肯廣告 McCann Worldgroup',
           time: '2019.10-2020.11',
@@ -175,8 +176,26 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.tn-img-wrapper {
+  @apply px-2;
+  flex: 5;
+}
+.tn-img-textPart {
+  flex: 4;
+}
+
 .photo {
   @apply w-full;
+}
+
+.negativeMargin {
+  margin-top: -120px;
+  @screen md {
+    margin-top: -240px;
+  }
+  @screen sm {
+    margin-top: 0px;
+  }
 }
 
 .professionalFieldBox {
@@ -212,10 +231,10 @@ export default Vue.extend({
 
   .iconBlock {
     width: 60px;
-    @apply w-15 h-15 bg-white rounded-lg;
+    @apply p-3 w-15 h-15 bg-white rounded-lg;
 
     @screen sm {
-      @apply w-7.5 h-7.5;
+      @apply w-7.5 h-7.5 p-1.5;
     }
   }
 }
