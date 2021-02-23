@@ -50,7 +50,7 @@
             </a>
 
             <a href="" class="block flex-1 p-2 rounded-lg bg-white shadow-md mr-3 sm:mr-0 flex items-center">
-              <img class="w-10 h-10 mr-3" src="~/assets/images/babyDragon/babyDragon.png">
+              <img class="w-10 h-10 mr-3" src="~/assets/images/babyDragon/babydragon.png">
 
               <p class="text-l font-bold">分帳龍寶寶LineBot官方網站</p>
             </a>

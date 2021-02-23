@@ -9,6 +9,7 @@
           v-for="item in linkList"
           :key="item.link"
           :href="item.link"
+          target="_blank"
         >
           <img class="w-6 h-6" :src="item.image">
         </a>
@@ -27,15 +28,15 @@ export default Vue.extend({
       linkList: [
         {
           image: require('@/assets/images/footer-medium.svg'),
-          link: '',
+          link: 'https://link.medium.com/sqxGgm6m5db',
         },
         {
           image: require('@/assets/images/footer-behance.svg'),
-          link: '',
+          link: 'https://www.behance.net/tingenwei',
         },
         {
           image: require('@/assets/images/footer-linkedin.svg'),
-          link: '',
+          link: 'http://linkedin.com/in/ting-en-wei-285411181',
         },
       ]
     }
