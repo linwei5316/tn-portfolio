@@ -46,7 +46,7 @@
 
           <div class="mt-3 -mx-1 -mb-2">
             <ScrollTriggerWrapper
-              class="marketingBox"
+              class="marketingBox shadow-md hoverFloat"
               v-for="item in marketingList"
               :key="item.title"
             >
@@ -73,7 +73,7 @@
 
         <div class="mt-3 -mx-1.5 flex flex-wrap">
           <ScrollTriggerWrapper
-            class="graphicDesignBox"
+            class="graphicDesignBox hoverFloat"
             v-for="item in graphicDesignList"
             :key="item.title"
           >
@@ -246,7 +246,7 @@ export default Vue.extend({
   }
 }
 .marketingBox {
-  @apply inline-block shadow-md rounded-md mx-1 mb-2;
+  @apply inline-block rounded-md mx-1 mb-2;
   width: calc(100% / 3 - 16px);
 
   @screen sm {
@@ -260,7 +260,7 @@ export default Vue.extend({
 }
 
 .graphicDesignBox {
-  @apply inline-block mx-1.5 mb-3;
+  @apply inline-block rounded-md mx-1.5 mb-3;
   width: calc(50% - 24px);
 
   @screen sm {

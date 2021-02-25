@@ -26,7 +26,7 @@
           :to="item.route"
         >{{ item.text }}</NuxtLink>
 
-        <a :href="require('~/static/CV_TingEnWei.pdf')" download class="button bg-green text-white linkItem">下載履歷</a>
+        <a :href="require('~/static/CV_TingEnWei.pdf')" download class="button bg-green text-white px-3 my-2.5">下載履歷</a>
       </nav>
       <button
         :class="['hamburgerButton', { active: showMobileNav }]"
@@ -44,6 +44,7 @@
       <NuxtLink
         class="mobileLinkItem"
         v-for="item in navList"
+        :key="item.route"
         :to="item.route"
       >{{ item.text }}</NuxtLink>
     </div>

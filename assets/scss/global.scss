@@ -60,13 +60,56 @@ a {
 }
 
 .button {
-  @apply text-base outline-none text-center;
+  @apply text-base outline-none inline-flex items-center justify-center;
   cursor: pointer;
   border-radius: 50px;
-  padding: 8px 24px;
-  outline: none;
+  padding: 4px 24px;
+  transition: 0.3s;
+  border-width: 3px;
+  border-style: solid;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &.bg-pink {
+    @apply border-pink;
+
+    &:hover {
+      @apply border-pinkAction bg-pinkAction;
+    }
+    &:active {
+      @apply border-pink;
+    }
+  }
+
+  &.bg-green {
+    @apply border-green;
+
+    &:hover {
+      @apply border-greenAction bg-greenAction;
+    }
+    &:active {
+      @apply border-green;
+    }
+  }
 }
 
 .image {
   @apply bg-cover bg-center bg-no-repeat;
+}
+
+.hoverFloat {
+  transition: 0.3s;
+  &:hover {
+    @apply shadow-md;
+    transform: translateY(-3px) !important;
+  }
+
+  &.shadow-md {
+    &:hover {
+      @apply shadow-lg;
+      transform: translateY(-3px) !important;
+    }
+  }
 }
