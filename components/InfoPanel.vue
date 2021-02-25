@@ -35,13 +35,6 @@ export default Vue.extend({
   @apply rounded-lg flex justify-end items-stretch relative bg-cover bg-left bg-no-repeat;
   background-color: #999999;
 
-  //.image {
-  //  @apply w-full absolute;
-  //  top: 50%;
-  //  left: 50%;
-  //  transform: translate(-50%, -50%);
-  //}
-
   @screen sm {
     @apply flex-col;
   }

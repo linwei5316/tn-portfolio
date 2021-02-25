@@ -52,7 +52,7 @@
             >
               <Box @click="item.clickAction">
                 <template v-slot:image>
-                  <img class="marketingImage" :src="item.image">
+                  <div class="marketingImage image" :style="{ 'background-image': `url(${item.image})` }"></div>
                 </template>
                 <template v-slot:content>
                   <h6 class="text-green">{{ item.title }}</h6>
@@ -71,7 +71,7 @@
           <h6 class="mt-3">從我的Behance中，可以了解到我的設計功力以及美感</h6>
         </div>
 
-        <div class="mt-3 -mx-1.5">
+        <div class="mt-3 -mx-1.5 flex flex-wrap">
           <ScrollTriggerWrapper
             class="graphicDesignBox"
             v-for="item in graphicDesignList"
@@ -79,16 +79,14 @@
           >
             <Box @click="item.clickAction">
               <template v-slot:image>
-                <div class="graphicDesignImageWrapper">
-                  <img class="graphicDesignImage" :src="item.image">
-                </div>
+                <div class="graphicDesignImage image" :style="{ 'background-image': `url(${item.image})` }"></div>
               </template>
               <template v-slot:content>
                 <h6 class="text-green">{{ item.title }}</h6>
               </template>
               <template v-slot:footer>
                 <div
-                  class="tag"
+                  class="tag mb-1"
                   v-for="tag in item.tags"
                   :key="tag"
                 >{{ tag }}</div>
@@ -257,7 +255,7 @@ export default Vue.extend({
 
   .marketingImage {
     background-color: #999999;
-    height: 180px;
+    height: 170px;
   }
 }
 
@@ -269,17 +267,9 @@ export default Vue.extend({
     width: calc(100% - 24px);
   }
 
-  .graphicDesignImageWrapper {
-    @apply relative overflow-hidden;
-    background-color: #999999;
+  .graphicDesignImage {
+    @apply w-full;
     height: 302px;
-
-    .graphicDesignImage {
-      @apply w-full absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
   }
 
   .tag {

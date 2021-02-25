@@ -66,3 +66,7 @@ a {
   padding: 8px 24px;
   outline: none;
 }
+
+.image {
+  @apply bg-cover bg-center bg-no-repeat;
+}

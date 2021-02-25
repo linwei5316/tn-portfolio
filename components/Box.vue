@@ -27,7 +27,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .box {
-  @apply cursor-pointer rounded-md overflow-hidden;
+  @apply cursor-pointer rounded-md overflow-hidden h-full flex flex-col;
 }
 .imageWrapper {
   @apply relative;
@@ -36,7 +36,7 @@ export default Vue.extend({
   @apply px-2.5 py-2 bg-white;
 }
 .boxFooter {
-  @apply px-2.5 pb-2 bg-white;
+  @apply px-2.5 pb-2 bg-white flex-1;
 }
 
 </style>
