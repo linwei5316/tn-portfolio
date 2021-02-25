@@ -42,14 +42,21 @@
           <h5 class="mb-3">你可以透過以下連結直接試用與更了解龍寶寶</h5>
 
           <div class="flex sm:flex-col">
-<!--            todo  LINK -->
-            <a href="" class="block flex-1 p-2 rounded-lg bg-white shadow-md mr-3 sm:mr-0 sm:mb-3 flex items-center">
+            <a
+              class="block flex-1 p-2 rounded-lg bg-white shadow-md hoverFloat mr-3 sm:mr-0 sm:mb-3 flex items-center"
+              href="https://line.me/R/ti/p/%40781zqjfw"
+              target="_blank"
+            >
               <img class="w-10 h-10 mr-3" src="~/assets/images/babyDragon/line.png">
 
               <p class="text-l font-bold">加「龍寶寶」為好友，立即試用！</p>
             </a>
 
-            <a href="" class="block flex-1 p-2 rounded-lg bg-white shadow-md mr-3 sm:mr-0 flex items-center">
+            <a
+              class="block flex-1 p-2 rounded-lg bg-white shadow-md hoverFloat mr-3 sm:mr-0 flex items-center"
+              href="http://dragon-baby.herokuapp.com/"
+              target="_blank"
+            >
               <img class="w-10 h-10 mr-3" src="~/assets/images/babyDragon/babydragon.png">
 
               <p class="text-l font-bold">分帳龍寶寶LineBot官方網站</p>
@@ -98,8 +105,11 @@
 
               <p>在上線後，搭配懶人包圖文，很意外的獲得了不錯的迴響，社群文章分享數突破3000則，龍寶寶也獲得近30萬次的回復數，使用者突破10000人。從社群留言、私訊、我們設置的「寶寶信箱」google表單中，也收到不少的使用者回饋。短短的四天內，我們藉著這些使用回饋進行了第一次改版。有興趣可以閱讀當時第一次改版的紀錄文字，而接下來，以最新版本的龍寶寶進行展示(20200209第三次改版後)</p>
 
-<!--              //TODO link -->
-              <a href="#" target="_blank" class="block mt-4 p-2 bg-white shadow-md rounded-lg flex items-center">
+              <a
+                class="block mt-4 p-2 bg-white shadow-md hoverFloat rounded-lg flex items-center"
+                href="https://tingenwei.medium.com/sideproject-linebot-%E5%88%86%E5%B8%B3%E9%BE%8D%E5%AF%B6%E5%AF%B6%E8%A3%BD%E4%BD%9C%E7%B4%80%E9%8C%84-26643e1095cd"
+                target="_blank"
+              >
                 <img class="w-10 h-10 mr-3" src="~/assets/images/babyDragon/medium.png">
 
                 <p class="font-bold">延伸閱讀：第一次改版後心得紀錄<br class="md:hidden"><span class="sm:hidden">@Medium</span></p>
