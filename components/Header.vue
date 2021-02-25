@@ -14,16 +14,19 @@
         { 'bg-bgMain': !featTop }
       ]"
     >
-      <h2 class="text-3xl">TingEn's Portfolio</h2>
+      <router-link to="/">
+        <h2 class="text-3xl">TingEn's Portfolio</h2>
+      </router-link>
 
       <nav class="flex md:hidden">
         <NuxtLink
           class="linkItem"
           v-for="item in navList"
+          :key="item.route"
           :to="item.route"
         >{{ item.text }}</NuxtLink>
 
-        <Button class="bg-green text-white linkItem">下載履歷</Button>
+        <a :href="require('~/static/CV_TingEnWei.pdf')" download class="button bg-green text-white linkItem">下載履歷</a>
       </nav>
       <button
         :class="['hamburgerButton', { active: showMobileNav }]"

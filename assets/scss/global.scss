@@ -58,3 +58,11 @@ a {
     }
   }
 }
+
+.button {
+  @apply text-base outline-none text-center;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 8px 24px;
+  outline: none;
+}

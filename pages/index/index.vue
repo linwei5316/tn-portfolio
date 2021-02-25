@@ -10,8 +10,8 @@
             <p class="text-gray mt-3">工業設計系畢業讓我擁有關於挖掘使用者痛點的基礎訓練；四年的廣告行銷與視覺設計訓練，讓我更貼近市場；第一線的貼近企業主與消費者，也讓我在各個利益關係人中不停的學習取得衡。目前正決心在UIUX領域深耕。</p>
 
             <div class="buttonList mt-3 sm:mt-1.5">
-              <Button class="bg-pink text-white mr-1 sm:mr-2 sm:w-full">關於我</Button>
-              <Button class="bg-pink text-white sm:w-full">下載履歷</Button>
+              <router-link to="/about" class="button bg-pink text-white mr-1 sm:mr-2 sm:w-full">關於我</router-link>
+              <a :href="require('~/static/CV_TingEnWei.pdf')" download class="button bg-pink text-white sm:w-full">下載履歷</a>
             </div>
           </div>
 
@@ -29,6 +29,7 @@
         </div>
 
         <InfoPanel
+          class="mb-8 md:mb-5 sm:mb-3.5"
           v-for="item in uiuxProjectList"
           :key="item.title"
           :data="item"
@@ -49,7 +50,7 @@
               v-for="item in marketingList"
               :key="item.title"
             >
-              <Box>
+              <Box @click="item.clickAction">
                 <template v-slot:image>
                   <img class="marketingImage" :src="item.image">
                 </template>
@@ -76,9 +77,11 @@
             v-for="item in graphicDesignList"
             :key="item.title"
           >
-            <Box>
+            <Box @click="item.clickAction">
               <template v-slot:image>
-                <img class="graphicDesignImage" :src="item.image">
+                <div class="graphicDesignImageWrapper">
+                  <img class="graphicDesignImage" :src="item.image">
+                </div>
               </template>
               <template v-slot:content>
                 <h6 class="text-green">{{ item.title }}</h6>
@@ -104,11 +107,14 @@ import MainSection from "~/components/MainSection.vue";
 import InfoPanel from '~/components/InfoPanel.vue';
 import Box from "~/components/Box.vue";
 import ScrollTriggerWrapper from "~/components/ScrollTriggerWrapper.vue";
-import gsap from 'gsap';
 
 const TAGS = {
   ILLUSTRATION: '插畫',
   WEB_DESIGN: '網頁設計',
+  IMAGE_SYNTHESIS: '影像合成',
+  SOCIAL: '社群創意',
+  KV: 'KV',
+  LAYOUT: '排版設計',
 }
 
 export default Vue.extend({
@@ -124,69 +130,78 @@ export default Vue.extend({
     return {
       uiuxProjectList: [
         {
-          date: '2020',
-          title: '分帳龍寶寶 Line bot 製作與迭代',
-          content: 'Modi dolor placeat molestiae temporibus in dolorum nostrum aut sed. Reiciendis officia omnis asperiores ullam unde cumque aut et',
-          image: '',
+          date: '2021',
+          title: '分帳龍寶寶：從MVP產品獲得用戶回饋的寶貴經驗',
+          content: '分帳龍寶寶一款協助多人分帳的LINEBOT小工具，特別適合於短期出遊或是室友生活等常常需要有「公費」支出的情境。此為我與友人兩人之Side Project',
+          image: require('@/assets/images/index/UX-babyDragon.jpg'),
           clickAction: () => {
-            console.log('dragon')
+            this.$router.push('/babydragon');
+          },
+        },
+        {
+          date: '2021',
+          title: '石二鍋線上點餐叫號系統 APP Redesign',
+          content: '以石二鍋連鎖餐廳叫號APP作為基礎進行Redesign，並以最完整且流暢的取號與點餐流程作為此次的設計目標',
+          image: require('@/assets/images/index/UX-hotpot.jpg'),
+          clickAction: () => {
+            this.$router.push('/hotpotredesign');
           },
         },
       ],
       marketingList: [
         {
-          image: '',
+          image: require('@/assets/images/index/marketing-chocotv.png'),
           title: '影音平台做廣告？CHOCO TV的行銷游擊戰',
           clickAction: () => {
-            console.log('market')
+            window.open('https://rulescreative.medium.com/%E4%BD%9C%E5%93%81-%E5%BD%B1%E9%9F%B3%E5%B9%B3%E5%8F%B0%E5%81%9A%E5%BB%A3%E5%91%8A-choco-tv%E7%9A%84%E8%A1%8C%E9%8A%B7%E6%B8%B8%E6%93%8A%E6%88%B0-rules-creative-f522970ccef', '_blank');
           },
         },
         {
-          image: '',
+          image: require('@/assets/images/index/marketing-total.png'),
           title: '粉絲團經營【殭屍粉絲團復活記 — TOTAL重生之旅】',
           clickAction: () => {
-            console.log('market')
+            window.open('https://rulescreative.medium.com/%E7%B2%89%E7%B5%B2%E5%9C%98%E7%B6%93%E7%87%9F-%E6%AE%AD%E5%B1%8D%E7%B2%89%E7%B5%B2%E5%9C%98%E5%BE%A9%E6%B4%BB%E8%A8%98-total%E9%87%8D%E7%94%9F%E4%B9%8B%E6%97%85-rules-creative-12742fe3e721', '_blank');
           },
         },
         {
-          image: '',
+          image: require('@/assets/images/index/marketing-dr-wu.png'),
           title: '最不端莊的保養品廣告 — 與DR.WU來一場創意角鬥',
           clickAction: () => {
-            console.log('market')
+            window.open('https://rulescreative.medium.com/%E6%A1%88%E4%BE%8B-%E6%9C%80%E4%B8%8D%E7%AB%AF%E8%8E%8A%E7%9A%84%E4%BF%9D%E9%A4%8A%E5%93%81%E5%BB%A3%E5%91%8A-%E8%88%87dr-wu%E4%BE%86%E4%B8%80%E5%A0%B4%E5%89%B5%E6%84%8F%E8%A7%92%E9%AC%A5-rules-creative-840fd0b9b953', '_blank');
           },
         },
       ],
       graphicDesignList: [
         {
-          image: '',
-          title: '十六茶-健康行旅行旅指南活動網站',
+          image: require('@/assets/images/index/2d_16cha.jpg'),
+          title: '十六茶｜健康行旅指南活動網站',
           tags: [TAGS.ILLUSTRATION, TAGS.WEB_DESIGN],
           clickAction: () => {
-            console.log('graphicDesignList')
+            window.open('https://www.behance.net/gallery/107167183/16cha-Campaign-Website-Design-', '_blank');
           },
         },
         {
-          image: '',
-          title: 'aaaaaa',
-          tags: [TAGS.ILLUSTRATION],
+          image: require('@/assets/images/index/2d_coffee.jpg'),
+          title: '全家FamilyMart Let\'s Cafe 數位行銷',
+          tags: [TAGS.ILLUSTRATION, TAGS.WEB_DESIGN, TAGS.SOCIAL, TAGS.KV],
           clickAction: () => {
-            console.log('graphicDesignList')
+            window.open('https://www.behance.net/gallery/113836159/FamilyMart-Lets-Cafe-Digital-Marketing-Design?tracking_source=project_owner_other_projects', '_blank');
           },
         },
         {
-          image: '',
-          title: 'bbb',
-          tags: [TAGS.ILLUSTRATION],
+          image: require('@/assets/images/index/2d_3M.jpg'),
+          title: '3M百利馬桶刷通路主視覺',
+          tags: [TAGS.WEB_DESIGN, TAGS.KV],
           clickAction: () => {
-            console.log('graphicDesignList')
+            window.open('https://www.behance.net/gallery/108053571/3M-Scotch-Brite-toilet-bowl-brush-Key-Visual?tracking_source=project_owner_other_projects', '_blank');
           },
         },
         {
-          image: '',
-          title: 'cccc',
-          tags: [TAGS.ILLUSTRATION],
+          image: require('@/assets/images/index/2d_wine.png'),
+          title: '烈酒類品牌行銷設計',
+          tags: [TAGS.KV, TAGS.IMAGE_SYNTHESIS, TAGS.LAYOUT, TAGS.SOCIAL],
           clickAction: () => {
-            console.log('graphicDesignList')
+            window.open('https://www.behance.net/gallery/113846173/Alcohol-marketing-content-design?tracking_source=project_owner_other_projects', '_blank');
           },
         },
       ],
@@ -204,8 +219,14 @@ export default Vue.extend({
 .negativeMarginSection {
   margin-top: -162px;
 
+  @apply -mb-8;
+
+  @screen md {
+    @apply -mb-5;
+  }
+
   @screen sm {
-    margin-top: 0;
+    @apply mt-0 -mb-3.5;
   }
 }
 
@@ -248,9 +269,17 @@ export default Vue.extend({
     width: calc(100% - 24px);
   }
 
-  .graphicDesignImage {
+  .graphicDesignImageWrapper {
+    @apply relative overflow-hidden;
     background-color: #999999;
     height: 302px;
+
+    .graphicDesignImage {
+      @apply w-full absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .tag {

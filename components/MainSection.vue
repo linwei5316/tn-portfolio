@@ -19,6 +19,7 @@ export default Vue.extend({})
   background-image: url('~@/assets/images/nn.png');
   background-size: auto 120%;
   background-position: center bottom;
+  background-repeat: no-repeat;
 
   @screen sm {
     @apply h-auto pt-14;

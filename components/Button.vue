@@ -21,10 +21,5 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.button {
-  @apply text-base outline-none;
-  cursor: pointer;
-  border-radius: 50px;
-  padding: 8px 24px;
-}
+
 </style>

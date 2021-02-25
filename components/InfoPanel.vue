@@ -1,6 +1,6 @@
 <template>
-  <div class="infoPanel overflow-hidden">
-    <img :src="data.image">
+  <div class="infoPanel overflow-hidden" :style="{ 'background-image': `url(${data.image})` }">
+    <img class="w-full hidden sm:block" :src="data.image">
 
     <div class="infoWrapper">
       <p class="text-brownLight font-bold">{{ data.date }}</p>
@@ -32,8 +32,15 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .infoPanel {
-  @apply rounded-lg flex justify-end items-stretch;
+  @apply rounded-lg flex justify-end items-stretch relative bg-cover bg-left bg-no-repeat;
   background-color: #999999;
+
+  //.image {
+  //  @apply w-full absolute;
+  //  top: 50%;
+  //  left: 50%;
+  //  transform: translate(-50%, -50%);
+  //}
 
   @screen sm {
     @apply flex-col;
@@ -54,7 +61,7 @@ export default Vue.extend({
       }
     }
     @screen sm {
-      @apply w-full p-3;
+      @apply w-full p-3 rounded-none;
       .title {
         @apply text-xl;
       }

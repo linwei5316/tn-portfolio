@@ -29,10 +29,14 @@ export default Vue.extend({
 .box {
   @apply cursor-pointer rounded-md overflow-hidden;
 }
+.imageWrapper {
+  @apply relative;
+}
 .boxContent {
   @apply px-2.5 py-2 bg-white;
 }
 .boxFooter {
   @apply px-2.5 pb-2 bg-white;
 }
+
 </style>
