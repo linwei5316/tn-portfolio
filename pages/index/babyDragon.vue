@@ -224,6 +224,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: "BabyDragon",
+  scrollToTop: true,
   data() {
     return {
       colorList: [

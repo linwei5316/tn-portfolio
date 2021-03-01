@@ -197,12 +197,11 @@
       </div>
     </section>
 
-    <div class="prototype mb-14">
+    <div class="prototype mb-14 md:hidden">
       <div class="container">
         <h5 class="mb-3">Prototype</h5>
       </div>
 
-<!--      //TODO mobile prototype -->
       <iframe
         v-if="showPrototype"
         style="border: 1px solid rgba(0, 0, 0, 0.1);"

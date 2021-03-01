@@ -46,6 +46,7 @@
         v-for="item in navList"
         :key="item.route"
         :to="item.route"
+        @click="setShowMobileNav(false)"
       >{{ item.text }}</NuxtLink>
     </div>
   </header>
