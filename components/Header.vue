@@ -31,7 +31,6 @@
       <button
         :class="['hamburgerButton', { active: showMobileNav }]"
         @click="toggleMobileNav"
-        @blur="setShowMobileNav(false)"
       >
         <div
           class="line"
@@ -46,7 +45,6 @@
         v-for="item in navList"
         :key="item.route"
         :to="item.route"
-        @click="setShowMobileNav(false)"
       >{{ item.text }}</NuxtLink>
     </div>
   </header>
@@ -85,6 +83,21 @@ export default Vue.extend({
       this.featTop = window.scrollY === 0;
     },
     throttleScrollWindowHandler() {},
+  },
+  watch: {
+    showMobileNav(value: boolean) {
+      const clickHandler = () => {
+        this.setShowMobileNav(false);
+
+        document.removeEventListener('click', clickHandler);
+      }
+
+      if (value) {
+        setTimeout(() => {
+          document.addEventListener('click', clickHandler);
+        });
+      }
+    }
   },
   created() {
     this.throttleScrollWindowHandler = throttle(this.scrollWindowHandler, 50);
