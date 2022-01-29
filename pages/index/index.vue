@@ -22,15 +22,15 @@
       </div>
     </MainSection>
 
-    <section class="py-6 negativeMarginSection md:mt-0">
+    <section class="py-9 negativeMarginSection md:mt-0">
       <div class="container">
-        <div class="sectionTitleWrapper mb-9 md:mb-3">
+        <div class="sectionTitleWrapper mb-6 md:mb-3">
           <h4 class="sectionTitle">UIUX 設計案例</h4>
         </div>
 
         <InfoPanel
-          class="mb-8 md:mb-5 sm:mb-3.5"
-          v-for="item in uiuxProjectList"
+          v-for="(item, index) in uiuxProjectList"
+          :class="(index < (uiuxProjectList.length - 1)) && 'mb-8 md:mb-5 sm:mb-3.5'"
           :key="item.title"
           :data="item"
           @click="item.clickAction"
@@ -38,33 +38,33 @@
       </div>
     </section>
 
-    <section class="py-6 bg-white">
-      <div class="container">
-        <div class="sectionTitleWrapper">
-          <h4 class="sectionTitle">我的行銷操作</h4>
-          <h6 class="mt-3">廣告行銷長期的INSIGHT挖掘訓練，我發現與UX的使用者洞察是非常相似的</h6>
+<!--    <section class="py-9 bg-white">-->
+<!--      <div class="container">-->
+<!--        <div class="sectionTitleWrapper">-->
+<!--          <h4 class="sectionTitle">我的行銷操作</h4>-->
+<!--          <h6 class="mt-3">廣告行銷長期的INSIGHT挖掘訓練，我發現與UX的使用者洞察是非常相似的</h6>-->
 
-          <div class="mt-3 -mx-1 -mb-2">
-            <ScrollTriggerWrapper
-              class="marketingBox shadow-md hoverFloat"
-              v-for="item in marketingList"
-              :key="item.title"
-            >
-              <Box @click="item.clickAction">
-                <template v-slot:image>
-                  <div class="marketingImage image" :style="{ 'background-image': `url(${item.image})` }"></div>
-                </template>
-                <template v-slot:content>
-                  <h6 class="text-green">{{ item.title }}</h6>
-                </template>
-              </Box>
-            </ScrollTriggerWrapper>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--          <div class="mt-3 -mx-1 -mb-2">-->
+<!--            <ScrollTriggerWrapper-->
+<!--              class="marketingBox shadow-md hoverFloat"-->
+<!--              v-for="item in marketingList"-->
+<!--              :key="item.title"-->
+<!--            >-->
+<!--              <Box @click="item.clickAction">-->
+<!--                <template v-slot:image>-->
+<!--                  <div class="marketingImage image" :style="{ 'background-image': `url(${item.image})` }"></div>-->
+<!--                </template>-->
+<!--                <template v-slot:content>-->
+<!--                  <h6 class="text-green">{{ item.title }}</h6>-->
+<!--                </template>-->
+<!--              </Box>-->
+<!--            </ScrollTriggerWrapper>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
 
-    <section class="py-6">
+    <section class="py-9">
       <div class="container">
         <div class="sectionTitleWrapper">
           <h4 class="sectionTitle">平面設計作品</h4>
@@ -127,6 +127,15 @@ export default Vue.extend({
   data() {
     return {
       uiuxProjectList: [
+        {
+          date: '2021 - 2022',
+          title: '東森寵物：從0到1建置OMO會員服務APP',
+          content: '結合東森寵物雲等四間寵物品牌的APP，藉此達到線上線下整合的會員系統。初期功能包含點數、優惠券等線上會員服務，並且納入寵物新聞、podcast等媒體資源。',
+          image: require('@/assets/images/index/UX-etPets.png'),
+          clickAction: () => {
+            this.$router.push('/ETPets');
+          },
+        },
         {
           date: '2021',
           title: '分帳龍寶寶：從MVP產品獲得用戶回饋的寶貴經驗',
@@ -215,7 +224,7 @@ export default Vue.extend({
 }
 
 .negativeMarginSection {
-  margin-top: -162px;
+  margin-top: -120px;
 
   @apply -mb-8;
 
@@ -236,7 +245,7 @@ export default Vue.extend({
   @apply flex flex-col items-center;
 }
 .sectionTitle {
-  @apply py-2 px-5 font-black text-white bg-brown rounded-full;
+  @apply px-5 font-black text-brown;
 
   @screen md {
     @apply py-1 text-3xl;
