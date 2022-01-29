@@ -18,3 +18,16 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+# deploy
+
+```bash
+$ git push heroku 
+```
+sync remote branch `heroku` to trigger the service release.
+
+
+# develop
+
+### style
+using tailwind css, check `tailwind.config.js`
