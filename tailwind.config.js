@@ -44,6 +44,7 @@ module.exports = {
       '13': '10.4rem',
       '14': '11.2rem',
       '15': '12rem',
+      '20': '16rem'
     },
     colors: {
       dark: '#333333',
