@@ -5,26 +5,20 @@
 
     <section class="navigateBannerMargin">
       <div class="container">
-        <div class="mb-8 md:mb-6 sm:mb-5 p-5 sm:p-3 rounded-lg shadow-md bg-white">
-          <h2 class="keyH2 mb-3 sm:mb-4.5">石二鍋線上點餐叫號系統 APP Redesign</h2>
-
-          <div class="flex mt-3 sm:mt-4.5 md:flex-wrap">
-            <div class="inline-block w-1/2 md:w-full mr-2 md:mr-0 md:mb-3">
-              <p class="text-brown text-xl mb-1">專案簡介</p>
-              <p>石二鍋僅接受APP預定或是現場抽號碼（多數人不會選擇），但APP使用流程不順，也有許多舊式的介面設計，導致使用體驗並不佳。</p>
-            </div>
-
-            <div class="inline-block w-1/4 md:w-1/2 pr-3 sm:w-full sm:pr-0 sm:mb-3">
-              <p class="text-brown text-xl mb-1">負責任務</p>
-              <p>功能流程重新規劃、設計完稿、原型製作，為自主練習之作品</p>
-            </div>
-
-            <div class="inline-block w-1/4 md:w-1/2 sm:w-full">
-              <p class="text-brown text-xl mb-1">專案時間</p>
-              <p>2020.12 - 2021.1</p>
-            </div>
-          </div>
-        </div>
+        <ProjectOverviewPanel>
+          <template #title>
+            石二鍋線上點餐叫號系統 APP Redesign
+          </template>
+          <template #description>
+            <p>石二鍋僅接受APP預定或是現場抽號碼（多數人不會選擇），但APP使用流程不順，也有許多舊式的介面設計，導致使用體驗並不佳。</p>
+          </template>
+          <template #task>
+            <p>功能流程重新規劃、設計完稿、原型製作，為自主練習之作品</p>
+          </template>
+          <template #time>
+            <p>2020.12 - 2021.1</p>
+          </template>
+        </ProjectOverviewPanel>
 
         <TwoPartArticleContent class="mb-7.5 md:mb-6 sm:mb-5">
           <template #first>
@@ -247,6 +241,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ProjectOverviewPanel from "~/components/ProjectOverviewPanel.vue";
 import TwoPartArticleContent from '@/components/TwoPartArticleContent.vue';
 
 const breakPoint = 768;
@@ -255,6 +250,7 @@ export default Vue.extend({
   name: "HotPotRedesign",
   scrollToTop: true,
   components: {
+    ProjectOverviewPanel,
     TwoPartArticleContent,
   },
   data() {

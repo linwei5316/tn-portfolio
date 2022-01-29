@@ -5,26 +5,20 @@
 
     <section class="navigateBannerMargin">
       <div class="container">
-        <div class="mb-8 md:mb-6 sm:mb-5 p-5 sm:p-3 rounded-lg shadow-md bg-white">
-          <h2 class="keyH2 mb-3 sm:mb-4.5">分帳龍寶寶：從MVP產品獲得用戶回饋的寶貴經驗</h2>
-
-          <div class="flex mt-3 sm:mt-4.5 md:flex-wrap">
-            <div class="inline-block w-1/2 md:w-full mr-2 md:mr-0 md:mb-3">
-              <p class="text-brown text-xl mb-1">專案簡介</p>
-              <p>分帳龍寶寶一款協助多人分帳的LINEBOT小工具，只要將其加入群組與群聊，透過指令快速紀錄花費，並且協助群組多人分帳，特別適合於短期出遊或是室友生活等常常需要有「公費」支出的情境。此為我與友人（工程師）兩人之共同作品。</p>
-            </div>
-
-            <div class="inline-block w-1/4 md:w-1/2 pr-3 sm:w-full sm:pr-0 sm:mb-3">
-              <p class="text-brown text-xl mb-1">負責任務</p>
-              <p>功能流程規劃（共同）、角色設計、介面設計、官網設計與規劃、後續行銷視覺與文案一切產出</p>
-            </div>
-
-            <div class="inline-block w-1/4 md:w-1/2 sm:w-full">
-              <p class="text-brown text-xl mb-1">專案時間</p>
-              <p>2020.11 - 至今仍不斷的優化中</p>
-            </div>
-          </div>
-        </div>
+        <ProjectOverviewPanel>
+          <template #title>
+            分帳龍寶寶：從MVP產品獲得用戶回饋的寶貴經驗
+          </template>
+          <template #description>
+            <p>分帳龍寶寶一款協助多人分帳的LINEBOT小工具，只要將其加入群組與群聊，透過指令快速紀錄花費，並且協助群組多人分帳，特別適合於短期出遊或是室友生活等常常需要有「公費」支出的情境。此為我與友人（工程師）兩人之共同作品。</p>
+          </template>
+          <template #task>
+            <p>功能流程規劃（共同）、角色設計、介面設計、官網設計與規劃、後續行銷視覺與文案一切產出</p>
+          </template>
+          <template #time>
+            <p>2020.11 - 至今仍不斷的優化中</p>
+          </template>
+        </ProjectOverviewPanel>
 
         <TwoPartArticleContent class="sectionSpacing">
           <template #first>
@@ -221,10 +215,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ProjectOverviewPanel from "~/components/ProjectOverviewPanel.vue";
 
 export default Vue.extend({
   name: "BabyDragon",
   scrollToTop: true,
+  components: {
+    ProjectOverviewPanel,
+  },
   data() {
     return {
       colorList: [
