@@ -38,32 +38,6 @@
       </div>
     </section>
 
-<!--    <section class="py-9 bg-white">-->
-<!--      <div class="container">-->
-<!--        <div class="sectionTitleWrapper">-->
-<!--          <h4 class="sectionTitle">我的行銷操作</h4>-->
-<!--          <h6 class="mt-3">廣告行銷長期的INSIGHT挖掘訓練，我發現與UX的使用者洞察是非常相似的</h6>-->
-
-<!--          <div class="mt-3 -mx-1 -mb-2">-->
-<!--            <ScrollTriggerWrapper-->
-<!--              class="marketingBox shadow-md hoverFloat"-->
-<!--              v-for="item in marketingList"-->
-<!--              :key="item.title"-->
-<!--            >-->
-<!--              <Box @click="item.clickAction">-->
-<!--                <template v-slot:image>-->
-<!--                  <div class="marketingImage image" :style="{ 'background-image': `url(${item.image})` }"></div>-->
-<!--                </template>-->
-<!--                <template v-slot:content>-->
-<!--                  <h6 class="text-green">{{ item.title }}</h6>-->
-<!--                </template>-->
-<!--              </Box>-->
-<!--            </ScrollTriggerWrapper>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
-
     <section class="py-9">
       <div class="container">
         <div class="sectionTitleWrapper">
@@ -105,6 +79,7 @@ import MainSection from "~/components/MainSection.vue";
 import InfoPanel from '~/components/InfoPanel.vue';
 import Box from "~/components/Box.vue";
 import ScrollTriggerWrapper from "~/components/ScrollTriggerWrapper.vue";
+import { openNewWindow } from "~/utils/utils";
 
 const TAGS = {
   ILLUSTRATION: '插畫',
@@ -120,10 +95,6 @@ const TAGS = {
   CHARACTER_DESIGN: '角色設計',
   CAMPAIGN_LOGO_DESIGN: '活動 LOGO 設計',
   MOTION_GRAPHIC: 'Motion Graphic',
-}
-
-const openNewWindow = (url: string) => {
-  window.open(url, '_blank');
 }
 
 export default Vue.extend({
@@ -163,29 +134,6 @@ export default Vue.extend({
           image: require('@/assets/images/index/UX-hotpot.jpg'),
           clickAction: () => {
             this.$router.push('/hotpotredesign');
-          },
-        },
-      ],
-      marketingList: [
-        {
-          image: require('@/assets/images/index/marketing-chocotv.png'),
-          title: '影音平台做廣告？CHOCO TV的行銷游擊戰',
-          clickAction: () => {
-            openNewWindow('https://rulescreative.medium.com/%E4%BD%9C%E5%93%81-%E5%BD%B1%E9%9F%B3%E5%B9%B3%E5%8F%B0%E5%81%9A%E5%BB%A3%E5%91%8A-choco-tv%E7%9A%84%E8%A1%8C%E9%8A%B7%E6%B8%B8%E6%93%8A%E6%88%B0-rules-creative-f522970ccef');
-          },
-        },
-        {
-          image: require('@/assets/images/index/marketing-total.png'),
-          title: '粉絲團經營【殭屍粉絲團復活記 — TOTAL重生之旅】',
-          clickAction: () => {
-            openNewWindow('https://rulescreative.medium.com/%E7%B2%89%E7%B5%B2%E5%9C%98%E7%B6%93%E7%87%9F-%E6%AE%AD%E5%B1%8D%E7%B2%89%E7%B5%B2%E5%9C%98%E5%BE%A9%E6%B4%BB%E8%A8%98-total%E9%87%8D%E7%94%9F%E4%B9%8B%E6%97%85-rules-creative-12742fe3e721');
-          },
-        },
-        {
-          image: require('@/assets/images/index/marketing-dr-wu.png'),
-          title: '最不端莊的保養品廣告 — 與DR.WU來一場創意角鬥',
-          clickAction: () => {
-            openNewWindow('https://rulescreative.medium.com/%E6%A1%88%E4%BE%8B-%E6%9C%80%E4%B8%8D%E7%AB%AF%E8%8E%8A%E7%9A%84%E4%BF%9D%E9%A4%8A%E5%93%81%E5%BB%A3%E5%91%8A-%E8%88%87dr-wu%E4%BE%86%E4%B8%80%E5%A0%B4%E5%89%B5%E6%84%8F%E8%A7%92%E9%AC%A5-rules-creative-840fd0b9b953');
           },
         },
       ],
@@ -229,6 +177,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '~@/assets/scss/mainPage.scss';
 
 .buttonList {
   @apply flex;
@@ -251,32 +200,6 @@ export default Vue.extend({
 .keyVisualImage {
   @apply w-full;
   transform: translateX(60px);
-}
-.sectionTitleWrapper {
-  @apply flex flex-col items-center;
-}
-.sectionTitle {
-  @apply px-5 font-black text-brown;
-
-  @screen md {
-    @apply py-1 text-3xl;
-  }
-  @screen sm {
-    @apply py-0.5 px-4 text-xl;
-  }
-}
-.marketingBox {
-  @apply inline-block rounded-md mx-1 mb-2;
-  width: calc(100% / 3 - 16px);
-
-  @screen sm {
-    width: calc(100% - 16px);
-  }
-
-  .marketingImage {
-    background-color: #999999;
-    height: 170px;
-  }
 }
 
 .graphicDesignBox {

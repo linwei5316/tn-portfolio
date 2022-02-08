@@ -1,0 +1,13 @@
+.sectionTitleWrapper {
+  @apply flex flex-col items-center;
+}
+.sectionTitle {
+  @apply px-5 font-black text-brown;
+
+  @screen md {
+    @apply py-1 text-3xl;
+  }
+  @screen sm {
+    @apply py-0.5 px-4 text-xl;
+  }
+}

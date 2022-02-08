@@ -6,7 +6,6 @@
           <div class="tn-img-wrapper flex-1 mr-2 flex items-start sm:hidden">
             <img class="photo" src="~/assets/images/about-me/TN_img.png">
           </div>
-<!--          //TODO confirm photo pad RWD -->
 
           <div class="tn-img-textPart sm:w-full">
             <h2 class="mt-6 md:text-5xl sm:text-4xl">Hi, 我是 Ting En Wei</h2>
@@ -47,7 +46,6 @@
               v-for="item in softwareSkillList"
             >
               <div class="iconBlock">
-<!--                //TODO icon-->
                 <img :src="item.image">
               </div>
               <p class="text-2xl text-gray mt-0.5 sm:text-tiny">{{ item.name }}</p>
@@ -69,6 +67,15 @@
         <div class="container">
           <h4 class="text-brown mb-6 sm:text-3xl md:mb-5 sm:mb-3">工作經驗 WORK</h4>
 
+          <ExperiencePanel class="experiencePanelSpace" :experienceData="experienceData.ETToday">
+            <template #description>
+              <p class="experienceP">工作內容：東森寵物、ETtoday 新聞雲 APP 建置與維運</p>
+              <p class="experienceP">- 東森寵物 APP 從 0 至 1 的建置</p>
+              <p class="experienceP">- 東森寵物設計系統建置</p>
+              <p class="experienceP">- 新聞雲 APP 因應業務需求的功能介面修改、節慶開機圖繪製</p>
+            </template>
+          </ExperiencePanel>
+
           <ExperiencePanel class="experiencePanelSpace" :experienceData="experienceData.mcCann">
             <template #description>
               <p class="experienceP">工作內容：創意發想與設計執行，規劃各項行銷活動，設計部分包含各式網站製作、通路與數位行銷素材</p>
@@ -86,9 +93,33 @@
           </ExperiencePanel>
         </div>
       </section>
+
+      <section class="py-9 md:py-7.5 sm:py-5 bg-white">
+        <div class="container">
+          <div class="sectionTitleWrapper">
+            <h4 class="sectionTitle">我的其他經歷</h4>
+            <h6 class="mt-3">行銷其講求的 Insight 挖掘與 UX 的使用者洞察是相似的，以下是過往工作為團隊記錄的商業洞察與行銷操作記錄</h6>
+
+            <div class="mt-7 md:mt-5 -mx-1 -mb-2">
+              <div
+                class="marketingBox shadow-md hoverFloat"
+                v-for="item in marketingList"
+                :key="item.title"
+              >
+                <Box @click="item.clickAction">
+                  <template v-slot:image>
+                    <div class="marketingImage image" :style="{ 'background-image': `url(${item.image})` }"></div>
+                  </template>
+                  <template v-slot:content>
+                    <h6 class="text-green">{{ item.title }}</h6>
+                  </template>
+                </Box>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-
-
   </div>
 </template>
 
@@ -96,6 +127,7 @@
 import Vue from 'vue'
 import MainSection from "~/components/MainSection.vue";
 import ExperiencePanel from "~/components/ExperiencePanel.vue";
+import { openNewWindow } from "~/utils/utils";
 
 export default Vue.extend({
   name: 'About',
@@ -168,14 +200,45 @@ export default Vue.extend({
           position: '資深設計 Senior Design',
           place: '麥肯廣告 McCann Worldgroup',
           time: '2019.10-2020.11',
+        },
+        ETToday: {
+          image: require('@/assets/images/about-me/ettoday_logo.png'),
+          position: 'UI / UX Designer',
+          place: '東森新媒體 ETtoday',
+          time: '2021.04 - 至今',
         }
-      }
+      },
+      marketingList: [
+        {
+          image: require('~/assets/images/about-me/marketing-chocotv.png'),
+          title: '影音平台做廣告？CHOCO TV的行銷游擊戰',
+          clickAction: () => {
+            openNewWindow('https://rulescreative.medium.com/%E4%BD%9C%E5%93%81-%E5%BD%B1%E9%9F%B3%E5%B9%B3%E5%8F%B0%E5%81%9A%E5%BB%A3%E5%91%8A-choco-tv%E7%9A%84%E8%A1%8C%E9%8A%B7%E6%B8%B8%E6%93%8A%E6%88%B0-rules-creative-f522970ccef');
+          },
+        },
+        {
+          image: require('~/assets/images/about-me/marketing-total.png'),
+          title: '粉絲團經營【殭屍粉絲團復活記 — TOTAL重生之旅】',
+          clickAction: () => {
+            openNewWindow('https://rulescreative.medium.com/%E7%B2%89%E7%B5%B2%E5%9C%98%E7%B6%93%E7%87%9F-%E6%AE%AD%E5%B1%8D%E7%B2%89%E7%B5%B2%E5%9C%98%E5%BE%A9%E6%B4%BB%E8%A8%98-total%E9%87%8D%E7%94%9F%E4%B9%8B%E6%97%85-rules-creative-12742fe3e721');
+          },
+        },
+        {
+          image: require('~/assets/images/about-me/marketing-dr-wu.png'),
+          title: '最不端莊的保養品廣告 — 與DR.WU來一場創意角鬥',
+          clickAction: () => {
+            openNewWindow('https://rulescreative.medium.com/%E6%A1%88%E4%BE%8B-%E6%9C%80%E4%B8%8D%E7%AB%AF%E8%8E%8A%E7%9A%84%E4%BF%9D%E9%A4%8A%E5%93%81%E5%BB%A3%E5%91%8A-%E8%88%87dr-wu%E4%BE%86%E4%B8%80%E5%A0%B4%E5%89%B5%E6%84%8F%E8%A7%92%E9%AC%A5-rules-creative-840fd0b9b953');
+          },
+        },
+      ],
     };
   },
 })
 </script>
 
 <style lang="scss" scoped>
+@import '~@/assets/scss/mainPage.scss';
+
 .tn-img-wrapper {
   @apply px-2;
   flex: 5;
@@ -256,6 +319,20 @@ export default Vue.extend({
   @apply text-lg text-gray;
   @screen sm {
     @apply text-base;
+  }
+}
+
+.marketingBox {
+  @apply inline-block rounded-md mx-1 mb-2;
+  width: calc(100% / 3 - 16px);
+
+  @screen sm {
+    width: calc(100% - 16px);
+  }
+
+  .marketingImage {
+    background-color: #999999;
+    height: 170px;
   }
 }
 </style>
