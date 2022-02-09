@@ -50,7 +50,7 @@ module.exports = {
       dark: '#333333',
       gray: '#828282',
       white: 'white',
-      bgMain: '#f9f5f0',
+      bgMain: '#F5F5F5',
       green: '#708a81',
       greenAction: '#194D39',
       pink: '#dd8158',
