@@ -2,8 +2,6 @@
   <div class="ETPetsPage">
     <div class="banner">
     </div>
-<!--    // TODO banner position adjust -->
-
     <section class="navigateBannerMargin">
       <div class="container">
         <ProjectOverviewPanel>
@@ -37,11 +35,10 @@
 
             <p class="text-brown font-bold mb-2.5">歡迎直接下載體驗：</p>
             <div class="flex sm:block">
-<!--              // TODO APP url-->
-              <a class="appLink" href="/">
+              <a class="appLink" href="https://apps.apple.com/tw/app/%E6%9D%B1%E6%A3%AE%E5%AF%B5%E7%89%A9/id1596215526" target="_blank">
                 <img src="~/assets/images/etPets/appstore.png">
               </a>
-              <a class="appLink" href="/">
+              <a class="appLink" href="https://play.google.com/store/apps/details?id=com.etipets.app" target="_blank">
                 <img src="~/assets/images/etPets/googleplay.png">
               </a>
             </div>
@@ -80,8 +77,8 @@
           <h5 class="mb-3 md:mb-2">為新產品定調 - 色彩計畫</h5>
           <p class="mb-3">寵物雲為 ETtoday 旗下的品牌，以往使用 Ettoday 的品牌主色--紫色為主。但這次的整合不僅只是東森寵物雲本身，同時要結合另外三間品牌。因此顏色選用上，以原本就存在的品牌吉祥物身上的顏色-- 藍色與桃紅 作為產品主色。ETtoday 的紫色、黃色作為輔助色。</p>
 
-          <!--        // TODO color image: mobile -->
-          <img class="w-full" src="~/assets/images/etPets/color_palette_l.png">
+          <img class="w-full sm:hidden" src="~/assets/images/etPets/color_palette_l.png">
+          <img class="w-full hidden sm:inline" src="~/assets/images/etPets/color_palette_s.png">
         </div>
       </div>
     </section>
@@ -155,18 +152,45 @@
       <img class="w-full" src="~/assets/images/etPets/etpet_screen.png">
     </section>
 
-    <section class="mb-10 md:mb-7.5">
+    <section class="mb-10 md:mb-7.5 sm:overflow-hidden">
       <div class="container">
-        <div class="mb-7 md:mb-5 sm:mb-3">
+        <div class="mb-7 md:mb-5">
           <h5 class="mb-3 md:mb-2">插圖巧思：帶入寵物特性</h5>
           <p>在成功、錯誤、或是空畫面中。加入自家的吉祥物們並且結合寵物特性。透過動物俏皮的樣子，提升流程完成的回饋感、降低用戶在錯誤時的煩躁感。同時也加深對於吉祥物們的印象。</p>
         </div>
 
-<!--        // TODO 9 image grid-->
+        <div class="flex flex-wrap sm:block -px-1.5 -mb-7.5 sm:px-0 sm:-mb-3">
+          <div
+            class="graphBox"
+            v-for="item in graphDesignList"
+            :key="item.description"
+          >
+            <img :src="item.image">
+            <p class="mt-2">{{ item.description }}</p>
+          </div>
+        </div>
       </div>
     </section>
 
-<!--    // TODO 學習與反思 block -->
+    <section class="mb-10 md:mb-7.5">
+      <div class="container">
+        <TwoPartArticleContent>
+          <template #first>
+            <h5>學習與反思</h5>
+          </template>
+          <template #second>
+            <div class="mb-2">
+              <p class="font-bold mb-0.5"># 學習在各方角力下取得平衡</p>
+              <p>專案開發過程中密集的跨部門溝通，除了常接觸的PM與工程師外，也有許多門市管理人員、門市 pos 機的開發團隊參與。與會過程中也讓我更看到不只是使用者的聲音，還有各方立場的角度。使用者體驗與開發成本、門市訓練、行銷需求...等之間，要有智慧的與各個單位溝通與平衡。</p>
+            </div>
+            <div>
+              <p class="font-bold mb-0.5"># 修改難免，主動解釋脈絡能加速開發</p>
+              <p>因為業務單位不只一個，在開發過程中很容易因為需求變更而面臨設計要更改的狀況。而工程端的修改也遠比設計更不彈性，在提出修改需求時，主動的告訴工程師們自己的思考脈絡，以及為什麼新的設計體驗更好，能幫助雙方更快地達成共識。</p>
+            </div>
+          </template>
+        </TwoPartArticleContent>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -179,6 +203,48 @@ export default Vue.extend({
   components: {
     ProjectOverviewPanel,
   },
+  data() {
+    return {
+      graphDesignList: [
+        {
+          image: require('~/assets/images/etPets/pet_1.png'),
+          description: '刷卡成功',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_2.png'),
+          description: '開啟通知功能',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_3.png'),
+          description: '開啟定位功能',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_4.png'),
+          description: '網路連線不穩',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_5.png'),
+          description: '系統忙碌',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_6.png'),
+          description: '空狀態',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_7.png'),
+          description: '刷卡失敗',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_8.png'),
+          description: '未登入',
+        },
+        {
+          image: require('~/assets/images/etPets/pet_9.png'),
+          description: '即將上線',
+        },
+      ],
+    }
+  }
 });
 </script>
 
@@ -189,6 +255,8 @@ export default Vue.extend({
   @include collectionPage;
 
   .banner {
+    // custom bg position
+    background-position-x: left;
     background-image: url("~@/assets/images/etPets/cover_large.png");
 
     @screen md {
@@ -201,6 +269,15 @@ export default Vue.extend({
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 50%;
+  }
+
+  .graphBox {
+    @apply px-1.5 mb-7.5 text-center;
+    width: calc(100% / 3);
+
+    @screen sm {
+      @apply px-7 mb-3 w-full;
+    }
   }
 
   .appLink {
