@@ -56,15 +56,6 @@
 
       <section class="mb-10 md:mb-7.5 sm:mb-5">
         <div class="container">
-          <h4 class="text-brown mb-6 sm:text-3xl md:mb-5 sm:mb-3">學歷經驗 EDUCATION</h4>
-
-          <ExperiencePanel class="experiencePanelSpace" :experienceData="experienceData.NTUST" />
-        </div>
-
-      </section>
-
-      <section class="mb-10 md:mb-7.5 sm:mb-5">
-        <div class="container">
           <h4 class="text-brown mb-6 sm:text-3xl md:mb-5 sm:mb-3">工作經驗 WORK</h4>
 
           <ExperiencePanel class="experiencePanelSpace" :experienceData="experienceData.ETToday">
@@ -91,6 +82,14 @@
               <p class="experienceP">主要服務品牌：DR.WU 醫美品牌 / TOTAL 道達爾機油 / CHOTO TV 新創公司</p>
             </template>
           </ExperiencePanel>
+        </div>
+      </section>
+
+      <section class="mb-10 md:mb-7.5 sm:mb-5">
+        <div class="container">
+          <h4 class="text-brown mb-6 sm:text-3xl md:mb-5 sm:mb-3">學歷經驗 EDUCATION</h4>
+
+          <ExperiencePanel class="experiencePanelSpace" :experienceData="experienceData.NTUST" />
         </div>
       </section>
 
